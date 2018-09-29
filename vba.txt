@@ -1,0 +1,102 @@
+Sub Œ©o‚µ‹L†()
+
+Dim myRange As Range
+Dim myFirstChar As String
+Dim mySecondChar As String
+Dim myChar As String
+
+Set myRange = Selection.Range
+
+'For i = 1 To ActiveDocument.Paragraphs.Count
+For i = 1 To myRange.Paragraphs.Count
+
+myRange.Paragraphs(i).Range.Select
+
+'MsgBox (ActiveDocument.Paragraphs(i).Range.Words.First)
+'MsgBox (ActiveDocument.Paragraphs(i).Range.Words(2))
+
+'myFirstChar = ActiveDocument.Paragraphs(i).Range.Words(1)
+'mySecondChar = ActiveDocument.Paragraphs(i).Range.Words(2)
+
+myFirstChar = myRange.Paragraphs(i).Range.Words(1) 'Å‰‚Ì’PŒê
+'mySecondChar = myRange.Paragraphs(i).Range.Words(2) '2”Ô–Ú‚Ì’PŒê
+
+'MsgBox (myFirstChar)
+
+'‚P
+If Not InStr("‚P,‚Q,‚R,‚S,‚T,‚U,‚V,‚W,‚X,‚P‚O,‚P‚P,‚P‚Q,‚P‚R,‚P‚S,‚P‚T,‚P‚U,‚P‚V,‚P‚W,‚P‚X,‚Q‚O,‚Q‚P,‚Q‚Q,‚Q‚R,‚Q‚S,‚Q‚T,‚Q‚U,‚Q‚V,‚Q‚W,‚Q‚X,‚R‚O", myFirstChar) = 0 Then
+
+        Œ©o‚µ = "n"
+        ni = ni + 1
+        myRange.Paragraphs(i).Range.Words(1).Text = StrConv(ni, 4)
+        firstLine = 1
+        indent = 3
+    
+    '‘æ‚P
+'    ElseIf Not InStr("‘æ‚P‘æ‚Q‘æ‚R‘æ‚S‘æ‚T‘æ‚U‘æ‚V‘æ‚W‘æ‚X‘æ‚P‚O", myFirstChar) = 0 Then
+    ElseIf Not InStr("‘æ‚P,‘æ‚Q,‘æ‚R,‘æ‚S,‘æ‚T,‘æ‚U,‘æ‚V,‘æ‚W,‘æ‚X,‘æ‚P‚O,‘æ‚P‚P,‘æ‚P‚Q,‘æ‚P‚R,‘æ‚P‚S,‘æ‚P‚T,‘æ‚P‚U,‘æ‚P‚V,‘æ‚P‚W,‘æ‚P‚X,‘æ‚Q‚O,‘æ‚Q‚P,‘æ‚Q‚Q,‘æ‚Q‚R,‘æ‚Q‚S,‘æ‚Q‚T,‘æ‚Q‚U,‘æ‚Q‚V,‘æ‚Q‚W,‘æ‚Q‚X,‘æ‚R‚O", myFirstChar) = 0 Then
+    
+        Œ©o‚µ = "‘æn"
+        ‘æni = ‘æni + 1
+	ni = 0
+        myRange.Paragraphs(i).Range.Words(1).Text = "‘æ" & StrConv(‘æni, 4)
+        firstLine = 0
+        indent = 0
+    
+'    'i‚Pj
+'    ElseIf Not InStr("‚P‚Q‚R‚S‚T‚U‚V‚W‚X‚P‚O", mySecondChar) = 0 Then
+'
+'    'MsgBox (InStr("‚P‚Q‚R‚S‚T‚U‚V‚W‚X‚P‚O", mySecondChar))
+'
+'    'ƒA
+'    ElseIf Not InStr("ƒAƒCƒEƒGƒIƒJƒLƒNƒPƒRƒTƒVƒXƒZƒ\ƒ^ƒ`ƒcƒeƒgƒiƒjƒkƒlƒm", myFirstChar) = 0 Then
+'
+'    'MsgBox (InStr("ƒAƒCƒEƒGƒIƒJƒLƒNƒPƒRƒTƒVƒXƒZƒ\ƒ^ƒ`ƒcƒeƒgƒiƒjƒkƒlƒm", myFirstChar))
+'
+'    'iƒAj
+'    ElseIf Not InStr("ƒAƒCƒEƒGƒIƒJƒLƒNƒPƒRƒTƒVƒXƒZƒ\ƒ^ƒ`ƒcƒeƒgƒiƒjƒkƒlƒm", mySecondChar) = 0 Then
+'
+'    '‚
+'    ElseIf Not InStr("‚‚‚‚ƒ‚„‚…‚†‚‡‚ˆ‚‰‚Š‚‹‚Œ‚‚", myFirstChar) = 0 Then
+'
+'    'i‚j
+'    ElseIf Not InStr("‚‚‚‚ƒ‚„‚…‚†‚‡‚ˆ‚‰‚Š‚‹‚Œ‚‚", mySecondChar) = 0 Then
+    
+'--------------------------------------------------
+    '‚±‚±‚Ü‚Åƒqƒbƒg‚µ‚È‚¯‚ê‚ÎC–{•¶
+    
+    ElseIf Œ©o‚µ = "‘æn" Then
+'        Œ©o‚µ = "‘æn–{•¶"
+        firstLine = 3
+        indent = 2
+
+    ElseIf Œ©o‚µ = "n" Then
+'        Œ©o‚µ = "n–{•¶"
+        firstLine = 3
+        indent = 2
+
+End If
+
+    Call funcƒCƒ“ƒfƒ“ƒg(firstLine, indent)
+
+Next i
+
+End Sub
+Function funcƒCƒ“ƒfƒ“ƒg(firstLine, indent)
+
+Rem š‰º‚°‚ÍC‚»‚Ì‚Ü‚Ü
+Rem ‚Ô‚ç‚³‚°‚ÍCindent‚ªCfirstline‚Ì‚Æ‚±‚ë‚É‚È‚éBindent‚ÍC‹¤’Ê‚Ì¶’[‚Æl‚¦‚éB
+
+'firstLine = InputBox("1s–Ú")
+'indent = InputBox("2s–Ú‹¤’Ê‚Ì¶’[")
+
+If firstLine > indent Then min = indent
+If firstLine < indent Then min = firstLine
+If firstLine = indent Then min = indent
+
+Selection.ParagraphFormat.CharacterUnitLeftIndent = min
+Selection.ParagraphFormat.CharacterUnitFirstLineIndent = firstLine - indent
+
+Application.ScreenRefresh
+
+End Function
